@@ -16,7 +16,7 @@
         <StackPanel Margin="10">
             <TextBox x:Name="NameField" />
             <TextBox x:Name="EmailField" />
-            <TextBox x:Name="PhoneTextBlock" />
+            <TextBox x:Name="PhoneField" />
             <Button Content="Save" Click="SaveButton_Click" />
         </StackPanel>
     </Grid>
