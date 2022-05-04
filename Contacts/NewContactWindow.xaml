@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Contacts"
         mc:Ignorable="d"
-        Title="New Contact" Height="450" Width="300">
+        Title="New Contact" Height="190" Width="300">
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="0,0,0,5" />
