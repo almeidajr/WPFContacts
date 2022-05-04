@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Contacts"
         mc:Ignorable="d"
         Title="Contacts" Height="450" Width="800">
-    <Grid>
-        <Button Content="Create a new contact" Click="NewContactButton_Click" />
-    </Grid>
+    <StackPanel Margin="10">
+        <Button Content="Create a new contact" Click="NewContactButton_Click" Margin="0,0,0,15" />
+        <ListView x:Name="ContactsListView" />
+    </StackPanel>
 </Window>

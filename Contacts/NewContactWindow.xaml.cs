@@ -1,4 +1,5 @@
 ﻿using Contacts.Models;
+using Contacts.Repositories;
 using SQLite;
 using System;
 using System.IO;
@@ -18,18 +19,13 @@ namespace Contacts
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            var contact = new Contact()
+            var contact = new Contact
             {
                 Name = NameField.Text,
                 Email = EmailField.Text,
                 Phone = PhoneField.Text,
             };
-            var database = "contacts.db";
-            var directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            var path = Path.Combine(directory, database);
-            using var connection = new SQLiteConnection(path);
-            connection.CreateTable<Contact>();
-            connection.Insert(contact);
+            ContactsRepository.Create(contact);
 
             Close();
         }
