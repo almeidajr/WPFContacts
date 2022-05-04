@@ -5,29 +5,28 @@ using System;
 using System.IO;
 using System.Windows;
 
-namespace Contacts
+namespace Contacts;
+
+/// <summary>
+/// Interaction logic for NewContactWindow.xaml
+/// </summary>
+public partial class NewContactWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for NewContactWindow.xaml
-    /// </summary>
-    public partial class NewContactWindow : Window
+    public NewContactWindow()
     {
-        public NewContactWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+    private void SaveButton_Click(object sender, RoutedEventArgs e)
+    {
+        var contact = new Contact
         {
-            var contact = new Contact
-            {
-                Name = NameField.Text,
-                Email = EmailField.Text,
-                Phone = PhoneField.Text,
-            };
-            ContactsRepository.Create(contact);
+            Name = NameField.Text,
+            Email = EmailField.Text,
+            Phone = PhoneField.Text,
+        };
+        ContactsRepository.Create(contact);
 
-            Close();
-        }
+        Close();
     }
 }

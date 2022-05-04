@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace Contacts.Repositories;
 
-
 public class ContactsRepository
 {
     private static readonly string _databasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "contacts.db");

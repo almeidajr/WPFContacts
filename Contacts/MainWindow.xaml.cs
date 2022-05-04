@@ -2,32 +2,32 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Contacts
+namespace Contacts;
+
+/// <summary>
+/// Interaction logic for MainWindow.xaml
+/// </summary>
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
-    {
         
-        public MainWindow()
-        {
-            InitializeComponent();
-            UpdateData();
-        }
+    public MainWindow()
+    {
+        InitializeComponent();
+        UpdateData();
+    }
 
-        private void UpdateData()
-        {
-            var contacts = ContactsRepository.GetAll();
-            if (contacts.Count == 0) return;
+    private void UpdateData()
+    {
+        var contacts = ContactsRepository.GetAll();
+        if (contacts.Count == 0) return;
 
-            ContactsListView.ItemsSource = contacts;
-        }
+        ContactsListView.ItemsSource = contacts;
+    }
 
-        private void NewContactButton_Click(object sender, RoutedEventArgs e)
-        {
-            new NewContactWindow().ShowDialog();
-            UpdateData();
-        }
+    private void NewContactButton_Click(object sender, RoutedEventArgs e)
+    {
+        new NewContactWindow().ShowDialog();
+        UpdateData();
     }
 }
+
