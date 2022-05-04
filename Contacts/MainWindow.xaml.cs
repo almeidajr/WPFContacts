@@ -1,6 +1,7 @@
 ﻿using Contacts.Models;
 using Contacts.Repositories;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -21,7 +22,10 @@ public partial class MainWindow : Window
 
     private void UpdateData()
     {
-        contacts = ContactsRepository.GetAll();
+        contacts = ContactsRepository
+            .GetAll()
+            .OrderBy(c => c.Name)
+            .ToList();
         if (contacts.Count == 0) return;
 
         ContactsListView.ItemsSource = contacts;
