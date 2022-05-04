@@ -15,10 +15,27 @@ public partial class ContactDetailsWindow : Window
     {
         _contact = contact;
         InitializeComponent();
+        InitializeContactForm();
+    }
+
+    private void InitializeContactForm()
+    {
+        NameField.Text = _contact.Name;
+        EmailField.Text = _contact.Email;
+        PhoneField.Text = _contact.Phone;
+    }
+
+    private void SyncContactForm()
+    {
+        _contact.Name = NameField.Text;
+        _contact.Email = EmailField.Text;
+        _contact.Phone = PhoneField.Text;
     }
 
     private void EditButton_Click(object sender, RoutedEventArgs e)
     {
+        SyncContactForm();
+        ContactsRepository.Update(_contact);
         Close();
     }
 
