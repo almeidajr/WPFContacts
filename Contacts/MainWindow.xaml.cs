@@ -1,4 +1,6 @@
-﻿using Contacts.Repositories;
+﻿using Contacts.Models;
+using Contacts.Repositories;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -9,7 +11,8 @@ namespace Contacts;
 /// </summary>
 public partial class MainWindow : Window
 {
-        
+    private List<Contact> contacts = new();
+
     public MainWindow()
     {
         InitializeComponent();
@@ -18,7 +21,7 @@ public partial class MainWindow : Window
 
     private void UpdateData()
     {
-        var contacts = ContactsRepository.GetAll();
+        contacts = ContactsRepository.GetAll();
         if (contacts.Count == 0) return;
 
         ContactsListView.ItemsSource = contacts;
@@ -28,6 +31,21 @@ public partial class MainWindow : Window
     {
         new NewContactWindow().ShowDialog();
         UpdateData();
+    }
+
+    private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        var searchBox = sender as TextBox;
+        var searchText = searchBox?.Text.ToLower();
+        if (string.IsNullOrWhiteSpace(searchText))
+        {
+            ContactsListView.ItemsSource = contacts;
+        }
+        else
+        {
+            ContactsListView.ItemsSource = contacts.FindAll(
+                c => c.Name.ToLower().Contains(searchText));
+        }
     }
 }
 

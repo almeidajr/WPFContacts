@@ -1,8 +1,5 @@
 ﻿using Contacts.Models;
 using Contacts.Repositories;
-using SQLite;
-using System;
-using System.IO;
 using System.Windows;
 
 namespace Contacts;

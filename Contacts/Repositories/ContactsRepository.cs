@@ -3,9 +3,6 @@ using SQLite;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Contacts.Repositories;
 
@@ -20,10 +17,10 @@ public class ContactsRepository
         connection.Insert(contact);
     }
 
-    public static IList<Contact> GetAll()
+    public static List<Contact> GetAll()
     {
         using var connection = new SQLiteConnection(_databasePath);
         connection.CreateTable<Contact>();
         return connection.Table<Contact>().ToList();
     }
-}    
+}
