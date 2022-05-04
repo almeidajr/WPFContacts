@@ -16,6 +16,11 @@
         <ListView x:Name="ContactsListView"
                   SelectionChanged="ContactsListView_SelectionChanged"
                   Height="300">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <custom:ContactControl Contact="{Binding}" />

@@ -5,18 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Contacts"
         mc:Ignorable="d"
-        Title="New Contact" Height="190" Width="300">
+        ResizeMode="NoResize"
+        Title="New Contact" Height="270" Width="300">
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="0,0,0,5" />
+            <Setter Property="Padding" Value="3" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="0,0,0,2" />
+            <Setter Property="Padding" Value="0" />
         </Style>
     </Window.Resources>
 
     <StackPanel Margin="10">
-        <Label Content="New Contact" Margin="0,0,0,10" />
+        <Label Content="New Contact"
+               FontSize="22"/>
+        <Label Content="Name:" />
         <TextBox x:Name="NameField" />
+        <Label Content="Email:" />
         <TextBox x:Name="EmailField" />
-        <TextBox x:Name="PhoneField" />
+        <Label Content="Phone:" />
+        <TextBox x:Name="PhoneField"
+                 Margin="0,0,0,15"/>
         <Button Content="Save" Click="SaveButton_Click" />
     </StackPanel>
 </Window>

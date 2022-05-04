@@ -16,6 +16,8 @@ public partial class ContactDetailsWindow : Window
         _contact = contact;
         InitializeComponent();
         InitializeContactForm();
+        Owner = Application.Current.MainWindow;
+        WindowStartupLocation = WindowStartupLocation.CenterOwner;
     }
 
     private void InitializeContactForm()

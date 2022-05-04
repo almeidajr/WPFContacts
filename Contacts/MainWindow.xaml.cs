@@ -18,6 +18,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         UpdateData();
+        WindowStartupLocation = WindowStartupLocation.CenterScreen;
     }
 
     private void UpdateData()
