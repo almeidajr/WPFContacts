@@ -1,9 +1,9 @@
-﻿using Contacts.Models;
-using Contacts.Repositories;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Contacts.Models;
+using Contacts.Repositories;
 
 namespace Contacts;
 
@@ -34,6 +34,13 @@ public partial class MainWindow : Window
     private void NewContactButton_Click(object sender, RoutedEventArgs e)
     {
         new NewContactWindow().ShowDialog();
+        UpdateData();
+    }
+
+    private void ContactsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (ContactsListView.SelectedItem is not Contact contact) return;
+        new ContactDetailsWindow(contact).ShowDialog();
         UpdateData();
     }
 

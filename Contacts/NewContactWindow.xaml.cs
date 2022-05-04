@@ -1,6 +1,6 @@
-﻿using Contacts.Models;
+﻿using System.Windows;
+using Contacts.Models;
 using Contacts.Repositories;
-using System.Windows;
 
 namespace Contacts;
 
